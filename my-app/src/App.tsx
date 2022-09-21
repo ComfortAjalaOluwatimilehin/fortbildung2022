@@ -11,7 +11,7 @@ export const App : React.FC<any> = observer(()  => {
       <section>
         <Button
           onClick={() => {
-            Store.buttonState = "DISABLED";
+            Store.toggleButtonState()
           }}
           state={Store.buttonState}
         >

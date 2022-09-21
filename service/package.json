@@ -1,0 +1,17 @@
+{
+  "name": "service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.7.18",
+    "mockserver-client": "^5.14.0",
+    "mockserver-node": "^5.14.0"
+  }
+}
