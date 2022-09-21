@@ -4,7 +4,6 @@ import { ITask } from './tasks';
 @Component({ tag: 'task-component' })
 export class TaskComponent {
   @Prop() task: ITask;
-
   @Watch('task')
   updateTask(key: string, value: any): void {
     this.task[key] = value;

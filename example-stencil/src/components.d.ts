@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ITask } from "./components/tasks/tasks";
+import { IUser } from "./components/users/users";
 export namespace Components {
     interface AppRoot {
     }
@@ -15,6 +16,9 @@ export namespace Components {
         "task": ITask;
     }
     interface TasksComponent {
+    }
+    interface UsersComponent {
+        "users": Array<IUser>;
     }
 }
 declare global {
@@ -42,11 +46,18 @@ declare global {
         prototype: HTMLTasksComponentElement;
         new (): HTMLTasksComponentElement;
     };
+    interface HTMLUsersComponentElement extends Components.UsersComponent, HTMLStencilElement {
+    }
+    var HTMLUsersComponentElement: {
+        prototype: HTMLUsersComponentElement;
+        new (): HTMLUsersComponentElement;
+    };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
         "home-component": HTMLHomeComponentElement;
         "task-component": HTMLTaskComponentElement;
         "tasks-component": HTMLTasksComponentElement;
+        "users-component": HTMLUsersComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -59,11 +70,15 @@ declare namespace LocalJSX {
     }
     interface TasksComponent {
     }
+    interface UsersComponent {
+        "users"?: Array<IUser>;
+    }
     interface IntrinsicElements {
         "app-root": AppRoot;
         "home-component": HomeComponent;
         "task-component": TaskComponent;
         "tasks-component": TasksComponent;
+        "users-component": UsersComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -74,6 +89,7 @@ declare module "@stencil/core" {
             "home-component": LocalJSX.HomeComponent & JSXBase.HTMLAttributes<HTMLHomeComponentElement>;
             "task-component": LocalJSX.TaskComponent & JSXBase.HTMLAttributes<HTMLTaskComponentElement>;
             "tasks-component": LocalJSX.TasksComponent & JSXBase.HTMLAttributes<HTMLTasksComponentElement>;
+            "users-component": LocalJSX.UsersComponent & JSXBase.HTMLAttributes<HTMLUsersComponentElement>;
         }
     }
 }
