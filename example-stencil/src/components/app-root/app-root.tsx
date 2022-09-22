@@ -12,6 +12,7 @@ export class AppRoot {
               { label: 'home', href: '/' },
               { label: 'tasks', href: '/tasks' },
               { label: 'users', href: '/users' },
+              { label: 'products', href: '/products' },
             ]}
           ></duet-header>
         </header>
@@ -21,6 +22,8 @@ export class AppRoot {
               <stencil-route url="/" component="home-component" exact={true} />
               <stencil-route url="/tasks" component="tasks-component" />
               <stencil-route url="/users" component="users-component" />
+              <stencil-route url="/products" exact={true} component="products-component" />
+              <stencil-route url="/products/:id" component="product-component" />
             </stencil-route-switch>
           </stencil-router>
         </content>

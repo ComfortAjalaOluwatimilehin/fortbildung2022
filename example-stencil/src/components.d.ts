@@ -12,6 +12,12 @@ export namespace Components {
     }
     interface HomeComponent {
     }
+    interface ProductComponent {
+        "id": string;
+        "match": any;
+    }
+    interface ProductsComponent {
+    }
     interface TaskComponent {
         "task": ITask;
     }
@@ -34,6 +40,18 @@ declare global {
         prototype: HTMLHomeComponentElement;
         new (): HTMLHomeComponentElement;
     };
+    interface HTMLProductComponentElement extends Components.ProductComponent, HTMLStencilElement {
+    }
+    var HTMLProductComponentElement: {
+        prototype: HTMLProductComponentElement;
+        new (): HTMLProductComponentElement;
+    };
+    interface HTMLProductsComponentElement extends Components.ProductsComponent, HTMLStencilElement {
+    }
+    var HTMLProductsComponentElement: {
+        prototype: HTMLProductsComponentElement;
+        new (): HTMLProductsComponentElement;
+    };
     interface HTMLTaskComponentElement extends Components.TaskComponent, HTMLStencilElement {
     }
     var HTMLTaskComponentElement: {
@@ -55,6 +73,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
         "home-component": HTMLHomeComponentElement;
+        "product-component": HTMLProductComponentElement;
+        "products-component": HTMLProductsComponentElement;
         "task-component": HTMLTaskComponentElement;
         "tasks-component": HTMLTasksComponentElement;
         "users-component": HTMLUsersComponentElement;
@@ -64,6 +84,12 @@ declare namespace LocalJSX {
     interface AppRoot {
     }
     interface HomeComponent {
+    }
+    interface ProductComponent {
+        "id"?: string;
+        "match": any;
+    }
+    interface ProductsComponent {
     }
     interface TaskComponent {
         "task"?: ITask;
@@ -76,6 +102,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "app-root": AppRoot;
         "home-component": HomeComponent;
+        "product-component": ProductComponent;
+        "products-component": ProductsComponent;
         "task-component": TaskComponent;
         "tasks-component": TasksComponent;
         "users-component": UsersComponent;
@@ -87,6 +115,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "home-component": LocalJSX.HomeComponent & JSXBase.HTMLAttributes<HTMLHomeComponentElement>;
+            "product-component": LocalJSX.ProductComponent & JSXBase.HTMLAttributes<HTMLProductComponentElement>;
+            "products-component": LocalJSX.ProductsComponent & JSXBase.HTMLAttributes<HTMLProductsComponentElement>;
             "task-component": LocalJSX.TaskComponent & JSXBase.HTMLAttributes<HTMLTaskComponentElement>;
             "tasks-component": LocalJSX.TasksComponent & JSXBase.HTMLAttributes<HTMLTasksComponentElement>;
             "users-component": LocalJSX.UsersComponent & JSXBase.HTMLAttributes<HTMLUsersComponentElement>;
