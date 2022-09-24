@@ -26,6 +26,7 @@ export namespace Components {
     }
     interface TaskComponent {
         "task": ITask;
+        "updateTask": (updatedTask:ITask) => any;
     }
     interface TasksComponent {
     }
@@ -111,6 +112,7 @@ declare namespace LocalJSX {
     }
     interface TaskComponent {
         "task"?: ITask;
+        "updateTask"?: (updatedTask:ITask) => any;
     }
     interface TasksComponent {
     }

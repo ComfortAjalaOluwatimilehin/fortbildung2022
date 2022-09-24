@@ -21,15 +21,14 @@ export class ProductsComponent {
                   product_name
                 }
             }
-        `
+        `;
     await fetch(`http://localhost:4000/graphql?query=${queryString}`, { method: 'POST' });
-    this.isFetching = true
+    this.isFetching = true;
     setTimeout(() => {
-      this.fetchProducts()
-    }, 1000)
-   
+      this.fetchProducts();
+    }, 1000);
   }
-  
+
   async fetchProducts(): Promise<void> {
     const queryString = `
             {
@@ -42,21 +41,24 @@ export class ProductsComponent {
     const response = await fetch(`http://localhost:4000/graphql?query=${queryString}`);
     const data = await response.json();
     if (data.data?.products) {
-      this.products = data.data.products.reverse()
+      this.products = data.data.products.reverse();
     }
     this.isFetching = false;
   }
   componentWillLoad() {
-    if(this.products.length > 0) return
+    if (this.products.length > 0) return;
     this.fetchProducts();
   }
   render() {
     return (
       <div id="productComponents">
-        
         {this.isFetching === false ? (
           <div>
-           <product-form product={null} onSave={(product, )=> this.saveProduct(product)}></product-form>
+            <duet-heading level="h1" visual-level="h0">
+              All Products
+            </duet-heading>
+            <duet-heading level="h6">GraphQl</duet-heading>
+            <product-form product={null} onSave={product => this.saveProduct(product)}></product-form>
             {this.products.map(product => {
               return (
                 <duet-card heading={product.product_name}>

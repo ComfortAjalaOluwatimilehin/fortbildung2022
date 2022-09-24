@@ -1,13 +1,11 @@
-import { Component, h, Prop, Watch } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 import { ITask } from './tasks';
 
 @Component({ tag: 'task-component' })
 export class TaskComponent {
   @Prop() task: ITask;
-  @Watch('task')
-  updateTask(key: string, value: any): void {
-    this.task[key] = value;
-  }
+  @Prop() updateTask:(updatedTask:ITask) => any; 
+
   render() {
     return (
       <div class="task">
@@ -15,8 +13,10 @@ export class TaskComponent {
           <duet-card heading={this.task.title}>
             <p>
               {this.task.description}
-              <duet-checkbox checked label={"Completed"} value={this.task.done} onClick={()=>{
-                this.updateTask('done', !this.task.done);
+              <duet-checkbox 
+               label={"Completed"} checked={this.task.done} onClick={(e)=>{
+               const updatedTask = {...this.task, done:e.target.checked}
+                this.updateTask(updatedTask);
               }}></duet-checkbox>
             </p>
           </duet-card>

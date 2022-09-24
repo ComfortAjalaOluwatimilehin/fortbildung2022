@@ -17,6 +17,7 @@ export class UsersComponent {
     this.users = data;
   }
   componentWillLoad() {
+    if(this.users.length > 0) return
     this.fetchUsers();
   }
   render() {
@@ -25,6 +26,7 @@ export class UsersComponent {
         <duet-heading level="h1" visual-level="h0">
           All Users
         </duet-heading>
+        <duet-heading level="h6">Mockserver</duet-heading>
         <duet-table>
           <table>
             <thead>

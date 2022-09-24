@@ -32,7 +32,11 @@ export class ProductComponent {
     const response = await fetch(`http://localhost:4000/graphql?query=${queryString}`, { method: 'POST' });
     const data = await response.json();
     this.product = data.data.updateProduct;
-    this.isUpdating = false;
+    setTimeout(() => {
+      this.isUpdating = false;
+    }, 1000)
+    
+    
   }
   async deleteProductById(): Promise<void> {
     const queryString = `

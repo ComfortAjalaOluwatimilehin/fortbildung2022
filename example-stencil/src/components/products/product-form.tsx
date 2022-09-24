@@ -1,7 +1,7 @@
 import { Component, h, Prop, State } from '@stencil/core';
 import { IProduct } from './products';
 
-@Component({ tag: 'product-form' })
+@Component({ tag: 'product-form', styleUrl:"./product-form.css" })
 export class ProductForm {
   @Prop() formIsDisabled: boolean = false;
   @Prop() onSave: (update: IProduct) => any;

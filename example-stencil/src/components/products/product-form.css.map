@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAC;EACV,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,GAAG;CAClB",
+    "sources": [
+        "product-form.scss"
+    ],
+    "names": [],
+    "file": "product-form.css"
+}
