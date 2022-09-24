@@ -23,7 +23,11 @@ export class ProductsComponent {
             }
         `
     await fetch(`http://localhost:4000/graphql?query=${queryString}`, { method: 'POST' });
-    
+    this.isFetching = true
+    setTimeout(() => {
+      this.fetchProducts()
+    }, 1000)
+   
   }
   
   async fetchProducts(): Promise<void> {

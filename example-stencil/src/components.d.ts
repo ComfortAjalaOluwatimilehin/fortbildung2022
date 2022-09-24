@@ -18,7 +18,8 @@ export namespace Components {
         "match": any;
     }
     interface ProductForm {
-        "onSave": (update:IProduct) => any;
+        "formIsDisabled": boolean;
+        "onSave": (update: IProduct) => any;
         "product": IProduct;
     }
     interface ProductsComponent {
@@ -102,7 +103,8 @@ declare namespace LocalJSX {
         "match": any;
     }
     interface ProductForm {
-        "onSave"?: (update:IProduct) => any;
+        "formIsDisabled"?: boolean;
+        "onSave"?: (update: IProduct) => any;
         "product": IProduct;
     }
     interface ProductsComponent {
