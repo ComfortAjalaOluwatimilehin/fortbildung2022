@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { IProduct } from "./components/products/products";
 import { ITask } from "./components/tasks/tasks";
 import { IUser } from "./components/users/users";
 export namespace Components {
@@ -15,6 +16,10 @@ export namespace Components {
     interface ProductComponent {
         "id": string;
         "match": any;
+    }
+    interface ProductForm {
+        "onSave": (update:IProduct) => any;
+        "product": IProduct;
     }
     interface ProductsComponent {
     }
@@ -46,6 +51,12 @@ declare global {
         prototype: HTMLProductComponentElement;
         new (): HTMLProductComponentElement;
     };
+    interface HTMLProductFormElement extends Components.ProductForm, HTMLStencilElement {
+    }
+    var HTMLProductFormElement: {
+        prototype: HTMLProductFormElement;
+        new (): HTMLProductFormElement;
+    };
     interface HTMLProductsComponentElement extends Components.ProductsComponent, HTMLStencilElement {
     }
     var HTMLProductsComponentElement: {
@@ -74,6 +85,7 @@ declare global {
         "app-root": HTMLAppRootElement;
         "home-component": HTMLHomeComponentElement;
         "product-component": HTMLProductComponentElement;
+        "product-form": HTMLProductFormElement;
         "products-component": HTMLProductsComponentElement;
         "task-component": HTMLTaskComponentElement;
         "tasks-component": HTMLTasksComponentElement;
@@ -89,6 +101,10 @@ declare namespace LocalJSX {
         "id"?: string;
         "match": any;
     }
+    interface ProductForm {
+        "onSave"?: (update:IProduct) => any;
+        "product": IProduct;
+    }
     interface ProductsComponent {
     }
     interface TaskComponent {
@@ -103,6 +119,7 @@ declare namespace LocalJSX {
         "app-root": AppRoot;
         "home-component": HomeComponent;
         "product-component": ProductComponent;
+        "product-form": ProductForm;
         "products-component": ProductsComponent;
         "task-component": TaskComponent;
         "tasks-component": TasksComponent;
@@ -116,6 +133,7 @@ declare module "@stencil/core" {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "home-component": LocalJSX.HomeComponent & JSXBase.HTMLAttributes<HTMLHomeComponentElement>;
             "product-component": LocalJSX.ProductComponent & JSXBase.HTMLAttributes<HTMLProductComponentElement>;
+            "product-form": LocalJSX.ProductForm & JSXBase.HTMLAttributes<HTMLProductFormElement>;
             "products-component": LocalJSX.ProductsComponent & JSXBase.HTMLAttributes<HTMLProductsComponentElement>;
             "task-component": LocalJSX.TaskComponent & JSXBase.HTMLAttributes<HTMLTaskComponentElement>;
             "tasks-component": LocalJSX.TasksComponent & JSXBase.HTMLAttributes<HTMLTasksComponentElement>;

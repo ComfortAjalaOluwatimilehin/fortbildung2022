@@ -1,1 +1,6 @@
-/* No CSS *//*# sourceMappingURL=products.css.map */
+div#product-form {
+  width: 60%;
+  margin: auto;
+  margin-top: 1em;
+}
+/*# sourceMappingURL=products.css.map */
