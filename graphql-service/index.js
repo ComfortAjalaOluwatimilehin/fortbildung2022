@@ -40,7 +40,7 @@ const resolvers = {
     Mutation: {
         createProduct: (obj, args, context, info) => {
             const newProduct = {
-                product_id: context.products.length,
+                product_id: context.products.length + 1,
                 product_name: args.product_name,
                 product_price: args.product_price,
                 product_stock_count: args.product_stock_count,
