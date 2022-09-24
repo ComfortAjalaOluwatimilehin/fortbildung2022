@@ -124,7 +124,7 @@ export class ProductComponent {
               <duet-spinner size="small" theme="default"></duet-spinner>
             ) : (
               <div>
-                <duet-heading level="h4">Update Product</duet-heading>
+              
                 {this.product && (
                   <product-form
                     formIsDisabled={this.isDeleted}
@@ -132,7 +132,7 @@ export class ProductComponent {
                     onSave={update => {
                       this.saveProduct(update);
                     }}
-                  ></product-form>
+                  > <duet-heading level="h4">Update Product</duet-heading></product-form>
                 )}
               </div>
             )}

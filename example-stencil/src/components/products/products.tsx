@@ -58,7 +58,7 @@ export class ProductsComponent {
               All Products
             </duet-heading>
             <duet-heading level="h6">GraphQl</duet-heading>
-            <product-form product={null} onSave={product => this.saveProduct(product)}></product-form>
+            <product-form product={null} onSave={product => this.saveProduct(product)}> <duet-heading level="h4">Create Product</duet-heading></product-form>
             {this.products.map(product => {
               return (
                 <duet-card heading={product.product_name}>

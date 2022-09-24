@@ -14,6 +14,7 @@ export class ProductForm {
   render() {
     return (
       <div id="product-form">
+        <slot/>
         <duet-input
           disabled={this.formIsDisabled}
           type="text"
